@@ -8,5 +8,5 @@
 'use strict';
 
 
-import 'konva';
+import 'konva9';
 export * from './ReactKonvaCore';

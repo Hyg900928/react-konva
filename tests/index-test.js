@@ -13,7 +13,7 @@ import {
 } from '../src/ReactKonva';
 import useImage from 'use-image';
 import './mocking';
-import Konva from 'konva';
+import Konva from 'konva9';
 import sinon from 'sinon/pkg/sinon';
 
 import Adapter from 'enzyme-adapter-react-16';

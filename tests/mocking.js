@@ -1,4 +1,4 @@
-import Konva from 'konva';
+import Konva from 'konva9';
 
 Konva.Stage.prototype.simulateMouseDown = function(pos) {
   var top = this.content.getBoundingClientRect().top;
