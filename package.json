@@ -2,7 +2,7 @@
   "license": "MIT",
   "name": "react-konva",
   "description": "React binding to canvas element via Konva framework",
-  "version": "19.0.2-1",
+  "version": "16.9.0-0",
   "keywords": [
     "react",
     "canvas",
@@ -17,67 +17,45 @@
     "url": "git@github.com:konvajs/react-konva.git"
   },
   "dependencies": {
-    "@types/react-reconciler": "^0.28.8",
-    "its-fine": "^1.2.5",
-    "scheduler": "0.25.0",
-    "react-reconciler": "0.31.0"
+    "react-reconciler": "^0.21.0",
+    "scheduler": "^0.15.0"
   },
-  "targets": {
-    "none": {}
-  },
-  "funding": [
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/lavrton"
-    },
-    {
-      "type": "opencollective",
-      "url": "https://opencollective.com/konva"
-    },
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/lavrton"
-    }
-  ],
   "peerDependencies": {
-    "konva": "^8.0.1 || ^7.2.5 || ^9.0.0",
-    "react": "^18.3.1 || ^19.0.0",
-    "react-dom": "^18.3.1 || ^19.0.0"
+    "konva": "^9.3.16",
+    "react": "16.9.x",
+    "react-dom": "16.9.x"
   },
   "devDependencies": {
-    "@types/chai": "^5.0.1",
-    "@types/mocha": "^10.0.10",
-    "@types/react": "19.0.1",
-    "assert": "^2.1.0",
-    "chai": "5.1.2",
+    "@types/react": "^16.9.0",
+    "chai": "^4.2.0",
+    "cheerio": "^1.0.0-rc.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "konva": "^9.3.16",
-    "mocha-headless-chrome": "^4.0.0",
-    "parcel": "^2.13.2",
-    "process": "^0.11.10",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "sinon": "^19.0.2",
-    "timers-browserify": "^2.0.12",
+    "nwb": "^0.23.0",
+    "react": "16.9.x",
+    "react-dom": "16.9.x",
+    "sinon": "^7.5.0",
     "typescript": "^5.7.2",
-    "use-image": "^1.1.1",
-    "util": "^0.12.5"
+    "use-image": "^1.0.4"
   },
   "scripts": {
-    "build": "tsc -outDir ./es &&  tsc -module commonjs -outDir ./lib && cp ./ReactKonvaCore.d.ts ./lib && cp ./ReactKonvaCore.d.ts ./es",
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test-react",
     "test:typings": "tsc --noEmit",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server",
     "preversion": "npm test",
     "version": "npm run build",
-    "postversion": "",
-    "test": "NODE_ENV=test npm run test:build && mocha-headless-chrome -f ./test-build/unit-tests.html -a disable-web-security && npm run test:typings",
-    "test:build": "NODE_ENV=test parcel build ./test/unit-tests.html --dist-dir test-build --target none --public-url ./ --no-source-maps",
-    "test:watch": "NODE_ENV=test rm -rf ./parcel-cache && parcel serve ./test/unit-tests.html"
+    "postversion": ""
   },
   "typings": "react-konva.d.ts",
   "files": [
     "README.md",
     "lib",
     "es",
-    "react-konva.d.ts",
-    "ReactKonvaCore.d.ts"
+    "react-konva.d.ts"
   ]
 }
